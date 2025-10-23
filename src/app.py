@@ -1,7 +1,12 @@
 import streamlit as st
 import pandas as pd
 import joblib
-model = joblib.load("../models/house_price_model_compressed.pkl")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(BASE_DIR, ".."))
+model_path = os.path.join(project_root, "models", "house_price_model_compressed.pkl")
+model = joblib.load(model_path)
 
 st.title("🏠 House Price Prediction App")
 
